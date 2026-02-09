@@ -32,5 +32,19 @@ namespace GildedTros.App
             // Then Quality should be 1
             Assert.Equal(1, Items[0].Quality);
         }
+
+        [Fact]
+        public void DecreaseQualitySellInPassedEndOfDay()
+        {
+            // Given an item with SellIn of 0 and quality of 4
+            IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 0, Quality = 4 } };
+            GildedTros app = new(Items);
+
+            // When the quality update is processed end of day
+            app.UpdateQuality();
+
+            // Then Quality should be 2
+            Assert.Equal(2, Items[0].Quality);
+        }
     }
 }
