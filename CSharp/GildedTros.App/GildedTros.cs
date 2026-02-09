@@ -26,7 +26,7 @@ namespace GildedTros.App
                     {
                         if (item.Name != "B-DAWG Keychain")
                         {
-                            item.Quality = item.Quality - 1;
+                            item.Quality--;
                         }
                     }
                 }
@@ -34,7 +34,7 @@ namespace GildedTros.App
                 {
                     if (item.Quality < MaxItemQuality)
                     {
-                        item.Quality = item.Quality + 1;
+                        item.Quality++;
 
                         if (item.Name == "Backstage passes for Re:factor"
                         || item.Name == "Backstage passes for HAXX")
@@ -43,7 +43,7 @@ namespace GildedTros.App
                             {
                                 if (item.Quality < MaxItemQuality)
                                 {
-                                    item.Quality = item.Quality + 1;
+                                    item.Quality++;
                                 }
                             }
 
@@ -51,7 +51,7 @@ namespace GildedTros.App
                             {
                                 if (item.Quality < MaxItemQuality)
                                 {
-                                    item.Quality = item.Quality + 1;
+                                    item.Quality++;
                                 }
                             }
                         }
@@ -60,7 +60,7 @@ namespace GildedTros.App
 
                 if (item.Name != "B-DAWG Keychain")
                 {
-                    item.SellIn = item.SellIn - 1;
+                    item.SellIn--;
                 }
 
                 if (item.SellIn < 0)
@@ -74,20 +74,20 @@ namespace GildedTros.App
                             {
                                 if (item.Name != "B-DAWG Keychain")
                                 {
-                                    item.Quality = item.Quality - 1;
+                                    item.Quality--;
                                 }
                             }
                         }
                         else
                         {
-                            item.Quality = item.Quality - item.Quality;
+                            item.Quality = MinQuality;
                         }
                     }
                     else
                     {
                         if (item.Quality < MaxItemQuality)
                         {
-                            item.Quality = item.Quality + 1;
+                            item.Quality++;
                         }
                     }
                 }
