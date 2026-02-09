@@ -69,7 +69,7 @@ namespace GildedTros.App
         // "Good Wine" actually increases in Quality the older it gets
         public void UpdateQuality_Should_Increase_Good_Wine_Quality_By_1()
         {
-            // Given a good wine item with SellIn of 2 and quality of 2
+            // Given a "Good Wine" item with SellIn of 2 and quality of 2
             var item = CreateItem("Good Wine", 2, 2);
             var app = CreateGildedTros(item);
 
@@ -99,7 +99,7 @@ namespace GildedTros.App
         // "B-DAWG Keychain", being a legendary item, never has to be sold or decreases in Quality
         public void UpdateQuality_Should_Not_Decrease_Keychain_Quality()
         {
-            // Given a b-dawg keychain item with SellIn of 2 and Quality of 20
+            // Given a "B-DAWG Keychain" item with SellIn of 2 and Quality of 20
             var item = CreateItem("B-DAWG Keychain", 2, 20);
             var app = CreateGildedTros(item);
 
@@ -114,7 +114,7 @@ namespace GildedTros.App
         // "B-DAWG Keychain", being a legendary item, never has to be sold or decreases in Quality
         public void UpdateQuality_Should_Not_Decrease_Keychain_SellIn()
         {
-            // Given a b-dawg keychain item with SellIn of 10 and Quality of 20
+            // Given a "B-DAWG Keychain" item with SellIn of 10 and Quality of 20
             var item = CreateItem("B-DAWG Keychain", 10, 20);
             var app = CreateGildedTros(item);
 
@@ -129,7 +129,7 @@ namespace GildedTros.App
         // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches
         public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_1_When_SellIn_Greater_Than_10()
         {
-            // Given a backstage passes item with SellIn greater than 10 and Quality of 20
+            // Given a "Backstage passes" item with SellIn greater than 10 and Quality of 20
             var item = CreateItem("Backstage passes for Re:factor", 15, 20);
             var app = CreateGildedTros(item);
 
@@ -145,7 +145,7 @@ namespace GildedTros.App
         // Quality increases by 2 when there are 10 days or less
         public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_2_When_SellIn_Greater_Than_5_And_Less_Than_11()
         {
-            // Given a backstage passes item with SellIn between 5 and ten and Quality of 20
+            // Given a "Backstage passes" item with SellIn between 5 and ten and Quality of 20
             var item = CreateItem("Backstage passes for Re:factor", 7, 20);
             var app = CreateGildedTros(item);
 
@@ -161,7 +161,7 @@ namespace GildedTros.App
         // Quality increases by 3 when there are 5 days or less
         public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_3_When_SellIn_Less_Than_6()
         {
-            // Given a backstage passes item with SellIn less than 5 and Quality of 20
+            // Given a "Backstage passes" item with SellIn less than 5 and Quality of 20
             var item = CreateItem("Backstage passes for Re:factor", 3, 20);
             var app = CreateGildedTros(item);
 
@@ -177,7 +177,7 @@ namespace GildedTros.App
         // Quality drops to 0 after the conference
         public void UpdateQuality_Should_Decrease_Backstage_Passes_Quality_To_0_When_SellIn_0()
         {
-            // Given a backstage passes item with SellIn of zero and Quality of 20
+            // Given a "Backstage passes" item with SellIn of zero and Quality of 20
             var item = CreateItem("Backstage passes for Re:factor", 0, 20);
             var app = CreateGildedTros(item);
 
@@ -192,7 +192,7 @@ namespace GildedTros.App
         // Legendary items always have Quality 80
         public void UpdateQuality_Should_Not_Increase_Keychain_Quality_When_80()
         {
-            // Given a b-dawg keychain item with SellIn of 10 and Quality of 80
+            // Given a "B-DAWG Keychain" item with SellIn of 10 and Quality of 80
             var item = CreateItem("B-DAWG Keychain", 10, 80);
             var app = CreateGildedTros(item);
 
