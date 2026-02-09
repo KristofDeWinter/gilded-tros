@@ -6,12 +6,17 @@ namespace GildedTros.App
     public class GildedTrosTest
     {
         [Fact]
-        public void foo()
+        public void DecreaseSellInByOneEndOfDay()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            GildedTros app = new GildedTros(Items);
+            // Given an item with SellIn of 2
+            IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 2, Quality = 2 } };
+            GildedTros app = new(Items);
+
+            // When the quality update is processed end of day
             app.UpdateQuality();
-            Assert.Equal("fixme", Items[0].Name);
+
+            // Then SellIn should be 1
+            Assert.Equal(1, Items[0].SellIn);
         }
     }
 }
