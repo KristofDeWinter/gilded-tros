@@ -46,5 +46,19 @@ namespace GildedTros.App
             // Then Quality should be 2
             Assert.Equal(2, Items[0].Quality);
         }
+
+        [Fact]
+        public void DecreaseQualityNeverNegative()
+        {
+            // Given an item with SellIn of 2 and quality of 0
+            IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 4, Quality = 0 } };
+            GildedTros app = new(Items);
+
+            // When the quality update is processed end of day
+            app.UpdateQuality();
+
+            // Then Quality should still be 0
+            Assert.Equal(0, Items[0].Quality);
+        }
     }
 }
