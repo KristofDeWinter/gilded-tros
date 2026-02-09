@@ -125,12 +125,14 @@ namespace GildedTros.App
             Assert.Equal(10, item.SellIn);
         }
 
-        [Fact]
+        [Theory]
+        [InlineData(15)]
+        [InlineData(11)]
         // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches
-        public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_1_When_SellIn_Greater_Than_10()
+        public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_1_When_SellIn_Greater_Than_10(int sellIn)
         {
             // Given a "Backstage passes" item with SellIn greater than 10 and Quality of 20
-            var item = CreateItem("Backstage passes for Re:factor", 15, 20);
+            var item = CreateItem("Backstage passes for Re:factor", sellIn, 20);
             var app = CreateGildedTros(item);
 
             // When the quality update is processed end of day
@@ -140,13 +142,16 @@ namespace GildedTros.App
             Assert.Equal(21, item.Quality);
         }
 
-        [Fact]
+        [Theory]
+        [InlineData(10)]
+        [InlineData(8)]
+        [InlineData(6)]
         // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches;
         // Quality increases by 2 when there are 10 days or less
-        public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_2_When_SellIn_Greater_Than_5_And_Less_Than_11()
+        public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_2_When_SellIn_Greater_Than_5_And_Less_Than_11(int sellIn)
         {
             // Given a "Backstage passes" item with SellIn between 5 and ten and Quality of 20
-            var item = CreateItem("Backstage passes for Re:factor", 7, 20);
+            var item = CreateItem("Backstage passes for Re:factor", sellIn, 20);
             var app = CreateGildedTros(item);
 
             // When the quality update is processed end of day
@@ -156,13 +161,16 @@ namespace GildedTros.App
             Assert.Equal(22, item.Quality);
         }
 
-        [Fact]
+        [Theory]
+        [InlineData(5)]
+        [InlineData(3)]
+        [InlineData(1)]
         // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches;
         // Quality increases by 3 when there are 5 days or less
-        public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_3_When_SellIn_Less_Than_6()
+        public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_3_When_SellIn_Less_Than_6(int sellIn)
         {
             // Given a "Backstage passes" item with SellIn less than 5 and Quality of 20
-            var item = CreateItem("Backstage passes for Re:factor", 3, 20);
+            var item = CreateItem("Backstage passes for Re:factor", sellIn, 20);
             var app = CreateGildedTros(item);
 
             // When the quality update is processed end of day
