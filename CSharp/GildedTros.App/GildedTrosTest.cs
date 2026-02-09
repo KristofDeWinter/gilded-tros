@@ -7,7 +7,7 @@ namespace GildedTros.App
     {
         [Fact]
         // At the end of each day our system lowers both values for every item
-        public void DecreaseSellInByOneEndOfDay()
+        public void UpdateQuality_Should_Decrease_Item_SellIn_By_1()
         {
             // Given an item with SellIn of 2
             IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 2, Quality = 2 } };
@@ -22,7 +22,7 @@ namespace GildedTros.App
 
         [Fact]
         // At the end of each day our system lowers both values for every item
-        public void DecreaseQualityByOneEndOfDay()
+        public void UpdateQuality_Should_Decrease_Item_Quality_By_1()
         {
             // Given an item with Quality of 2
             IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 2, Quality = 2 } };
@@ -37,7 +37,7 @@ namespace GildedTros.App
 
         [Fact]
         // Once the sell by date has passed, Quality degrades twice as fast
-        public void DecreaseQualitySellInPassedEndOfDay()
+        public void UpdateQuality_Should_Decrease_Item_Quality_By_2_When_Expired()
         {
             // Given an item with SellIn of 0 and quality of 4
             IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 0, Quality = 4 } };
@@ -52,7 +52,7 @@ namespace GildedTros.App
 
         [Fact]
         // The Quality of an item is never negative
-        public void DecreaseQualityNeverNegativeEndOfDay()
+        public void UpdateQuality_Should_Not_Decrease_Item_Quality_When_0()
         {
             // Given an item with SellIn of 2 and quality of 0
             IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 4, Quality = 0 } };
@@ -67,7 +67,7 @@ namespace GildedTros.App
 
         [Fact]
         // "Good Wine" actually increases in Quality the older it gets
-        public void IncreaseQualityGoodWineEndOfDay()
+        public void UpdateQuality_Should_Increase_Good_Wine_Quality_By_1()
         {
             // Given a good wine item with SellIn of 2 and quality of 2
             IList<Item> Items = new List<Item> { new() { Name = "Good Wine", SellIn = 2, Quality = 2 } };
@@ -83,7 +83,7 @@ namespace GildedTros.App
 
         [Fact]
         // The Quality of an item is never more than 50
-        public void IncreaseQualityGoodWineEndOfDayRemainsQualityFifty()
+        public void UpdateQuality_Should_Not_Increase_Quality_When_50()
         {
             // Given an item with SellIn of 5 and quality of 50
             IList<Item> Items = new List<Item> { new() { Name = "Good Wine", SellIn = 5, Quality = 50 } };
@@ -98,7 +98,7 @@ namespace GildedTros.App
 
         [Fact]
         // "B-DAWG Keychain", being a legendary item, never has to be sold or decreases in Quality
-        public void IncreaseQualityKeychainEndOfDayRemainsQualityTwenty()
+        public void UpdateQuality_Should_Not_Decrease_Keychain_Quality()
         {
             // Given a b-dawg keychain item with SellIn of 2 and Quality of 20
             IList<Item> Items = new List<Item> { new() { Name = "B-DAWG Keychain", SellIn = 2, Quality = 20 } };
@@ -113,7 +113,7 @@ namespace GildedTros.App
 
         [Fact]
         // "B-DAWG Keychain", being a legendary item, never has to be sold or decreases in Quality
-        public void IncreaseSellInKeychainEndOfDayRemainsSellInTen()
+        public void UpdateQuality_Should_Not_Decrease_Keychain_SellIn()
         {
             // Given a b-dawg keychain item with SellIn of 10 and Quality of 20
             IList<Item> Items = new List<Item> { new() { Name = "B-DAWG Keychain", SellIn = 10, Quality = 20 } };
@@ -128,7 +128,7 @@ namespace GildedTros.App
 
         [Fact]
         // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches
-        public void IncreaseQualityBackstagePassesEndOfDayGreaterThanTen()
+        public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_1_When_SellIn_Greater_Than_10()
         {
             // Given a backstage passes item with SellIn greater than 10 and Quality of 20
             IList<Item> Items = new List<Item> { new() { Name = "Backstage passes for Re:factor", SellIn = 15, Quality = 20 } };
@@ -144,7 +144,7 @@ namespace GildedTros.App
         [Fact]
         // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches;
         // Quality increases by 2 when there are 10 days or less
-        public void IncreaseQualityBackstagePassesEndOfDaySellInBetweenFiveAndTen()
+        public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_2_When_SellIn_Greater_Than_5_And_Less_Than_11()
         {
             // Given a backstage passes item with SellIn between 5 and ten and Quality of 20
             IList<Item> Items = new List<Item> { new() { Name = "Backstage passes for Re:factor", SellIn = 7, Quality = 20 } };
@@ -160,7 +160,7 @@ namespace GildedTros.App
         [Fact]
         // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches;
         // Quality increases by 3 when there are 5 days or less
-        public void IncreaseQualityBackstagePassesEndOfDaySellInLessThanFive()
+        public void UpdateQuality_Should_Increase_Backstage_Passes_Quality_By_3_When_SellIn_Less_Than_6()
         {
             // Given a backstage passes item with SellIn less than 5 and Quality of 20
             IList<Item> Items = new List<Item> { new() { Name = "Backstage passes for Re:factor", SellIn = 3, Quality = 20 } };
@@ -176,7 +176,7 @@ namespace GildedTros.App
         [Fact]
         // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches;
         // Quality drops to 0 after the conference
-        public void DecreaseQualityBackstagePassesEndOfDaySellInZero()
+        public void UpdateQuality_Should_Decrease_Backstage_Passes_Quality_To_0_When_SellIn_0()
         {
             // Given a backstage passes item with SellIn of zero and Quality of 20
             IList<Item> Items = new List<Item> { new() { Name = "Backstage passes for Re:factor", SellIn = 0, Quality = 20 } };
@@ -191,7 +191,7 @@ namespace GildedTros.App
 
         [Fact]
         // Legendary items always have Quality 80
-        public void IncreaseQualityKeychainEndOfDayRemainsQualityEighty()
+        public void UpdateQuality_Should_Not_Increase_Keychain_Quality_When_80()
         {
             // Given a b-dawg keychain item with SellIn of 10 and Quality of 80
             IList<Item> Items = new List<Item> { new() { Name = "B-DAWG Keychain", SellIn = 10, Quality = 80 } };
