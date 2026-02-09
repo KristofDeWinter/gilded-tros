@@ -23,46 +23,48 @@ namespace GildedTros.App
         {
             foreach (Item item in Items)
             {
-                if (item.Name == Keychain)
+                switch (item.Name)
                 {
-                    continue;
-                }
+                    case GoodWine:
+                        {
+                            if (item.Quality < MaxItemQuality)
+                                item.Quality++;
 
-                if (item.Name != GoodWine && item.Name != BackstagePassesRefactor && item.Name != BackstagePassesHaxx && item.Quality > MinQuality)
-                {
-                    item.Quality--;
-                }
-                if ((item.Name == GoodWine || item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx) && item.Quality < MaxItemQuality)
-                {
-                    item.Quality++;
-                }
-                if ((item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx) && item.Quality < MaxItemQuality && item.SellIn < 11)
-                {
-                    item.Quality++;
-                }
-                if ((item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx) && item.Quality < MaxItemQuality && item.SellIn < 6)
-                {
-                    item.Quality++;
-                }
+                            item.SellIn--;
 
-                item.SellIn--;
+                            if (item.SellIn < 0 && item.Quality < MaxItemQuality)
+                                item.Quality++;
+                        }
+                        break;
+                    case BackstagePassesHaxx:
+                    case BackstagePassesRefactor:
+                        {
+                            if (item.Quality < MaxItemQuality)
+                                item.Quality++;
+                            if (item.SellIn < 11)
+                                item.Quality++;
+                            if (item.SellIn < 6)
+                                item.Quality++;
 
-                if (item.SellIn >= 0)
-                {
-                    continue;
-                }
+                            item.SellIn--;
 
-                if (item.Name == GoodWine && item.Quality < MaxItemQuality)
-                {
-                    item.Quality++;
-                }
-                if (item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx)
-                {
-                    item.Quality = MinQuality;
-                }
-                if (item.Quality > MinQuality)
-                {
-                    item.Quality--;
+                            if (item.SellIn < 0)
+                                item.Quality = MinQuality;
+                        }
+                        break;
+                    case Keychain:
+                        break;
+                    default:
+                        {
+                            if (item.Quality > MinQuality)
+                                item.Quality--;
+
+                            item.SellIn--;
+
+                            if (item.SellIn < 0)
+                                item.Quality--;
+                        }
+                        break;
                 }
             }
         }
