@@ -23,9 +23,7 @@ namespace GildedTros.App
         {
             foreach (Item item in Items)
             {
-                if (item.Name != GoodWine
-                    && item.Name != BackstagePassesRefactor
-                    && item.Name != BackstagePassesHaxx)
+                if (item.Name != GoodWine && item.Name != BackstagePassesRefactor && item.Name != BackstagePassesHaxx)
                 {
                     if (item.Quality > MinQuality && item.Name != Keychain)
                     {
@@ -38,8 +36,7 @@ namespace GildedTros.App
                     {
                         item.Quality++;
 
-                        if (item.Name == BackstagePassesRefactor
-                        || item.Name == BackstagePassesHaxx)
+                        if (item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx)
                         {
                             if (item.SellIn < 11 && item.Quality < MaxItemQuality)
                             {
@@ -63,8 +60,7 @@ namespace GildedTros.App
                 {
                     if (item.Name != GoodWine)
                     {
-                        if (item.Name != BackstagePassesRefactor
-                            && item.Name != BackstagePassesHaxx)
+                        if (item.Name != BackstagePassesRefactor && item.Name != BackstagePassesHaxx)
                         {
                             if (item.Quality > MinQuality && item.Name != Keychain)
                             {
