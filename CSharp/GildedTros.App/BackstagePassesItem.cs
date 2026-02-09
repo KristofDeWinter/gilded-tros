@@ -10,9 +10,9 @@
         {
             if (item.Quality < MaxItemQuality)
                 item.Quality++;
-            if (item.SellIn < 11)
+            if (item.Quality < MaxItemQuality && item.SellIn < 11)
                 item.Quality++;
-            if (item.SellIn < 6)
+            if (item.Quality < MaxItemQuality && item.SellIn < 6)
                 item.Quality++;
 
             item.SellIn--;
