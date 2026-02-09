@@ -61,11 +61,11 @@ namespace GildedTros.App
                 {
                     item.Quality++;
                 }
-                else if (item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx)
+                if (item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx)
                 {
                     item.Quality = MinQuality;
                 }
-                else if (item.Quality > MinQuality)
+                if (item.Quality > MinQuality)
                 {
                     item.Quality--;
                 }
