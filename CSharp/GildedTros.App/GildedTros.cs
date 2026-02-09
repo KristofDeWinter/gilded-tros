@@ -28,14 +28,11 @@ namespace GildedTros.App
                     continue;
                 }
 
-                if (item.Name != GoodWine && item.Name != BackstagePassesRefactor && item.Name != BackstagePassesHaxx)
+                if (item.Name != GoodWine && item.Name != BackstagePassesRefactor && item.Name != BackstagePassesHaxx && item.Quality > MinQuality)
                 {
-                    if (item.Quality > MinQuality)
-                    {
-                        item.Quality--;
-                    }
+                    item.Quality--;
                 }
-                else if (item.Quality < MaxItemQuality)
+                if ((item.Name == GoodWine || item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx) && item.Quality < MaxItemQuality)
                 {
                     item.Quality++;
 
