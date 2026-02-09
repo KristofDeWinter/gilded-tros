@@ -6,6 +6,7 @@ namespace GildedTros.App
     public class GildedTrosTest
     {
         [Fact]
+        // At the end of each day our system lowers both values for every item
         public void DecreaseSellInByOneEndOfDay()
         {
             // Given an item with SellIn of 2
@@ -20,6 +21,7 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // At the end of each day our system lowers both values for every item
         public void DecreaseQualityByOneEndOfDay()
         {
             // Given an item with Quality of 2
@@ -34,6 +36,7 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // Once the sell by date has passed, Quality degrades twice as fast
         public void DecreaseQualitySellInPassedEndOfDay()
         {
             // Given an item with SellIn of 0 and quality of 4
@@ -48,6 +51,7 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // The Quality of an item is never negative
         public void DecreaseQualityNeverNegativeEndOfDay()
         {
             // Given an item with SellIn of 2 and quality of 0
@@ -62,6 +66,7 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // "Good Wine" actually increases in Quality the older it gets
         public void IncreaseQualityGoodWineEndOfDay()
         {
             // Given a good wine item with SellIn of 2 and quality of 2
@@ -77,6 +82,7 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // The Quality of an item is never more than 50
         public void IncreaseQualityGoodWineEndOfDayRemainsQualityFifty()
         {
             // Given an item with SellIn of 5 and quality of 50
@@ -91,6 +97,7 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // "B-DAWG Keychain", being a legendary item, never has to be sold or decreases in Quality
         public void IncreaseQualityKeychainEndOfDayRemainsQualityTwenty()
         {
             // Given a b-dawg keychain item with SellIn of 2 and Quality of 20
@@ -105,6 +112,7 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // "B-DAWG Keychain", being a legendary item, never has to be sold or decreases in Quality
         public void IncreaseSellInKeychainEndOfDayRemainsSellInTen()
         {
             // Given a b-dawg keychain item with SellIn of 10 and Quality of 20
@@ -119,6 +127,7 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches
         public void IncreaseQualityBackstagePassesEndOfDayGreaterThanTen()
         {
             // Given a backstage passes item with SellIn greater than 10 and Quality of 20
@@ -133,6 +142,8 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches;
+        // Quality increases by 2 when there are 10 days or less
         public void IncreaseQualityBackstagePassesEndOfDaySellInBetweenFiveAndTen()
         {
             // Given a backstage passes item with SellIn between 5 and ten and Quality of 20
@@ -147,6 +158,8 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches;
+        // Quality increases by 3 when there are 5 days or less
         public void IncreaseQualityBackstagePassesEndOfDaySellInLessThanFive()
         {
             // Given a backstage passes item with SellIn less than 5 and Quality of 20
@@ -161,6 +174,8 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // "Backstage passes" for very interesting conferences increases in Quality as its SellIn value approaches;
+        // Quality drops to 0 after the conference
         public void DecreaseQualityBackstagePassesEndOfDaySellInZero()
         {
             // Given a backstage passes item with SellIn of zero and Quality of 20
@@ -175,6 +190,7 @@ namespace GildedTros.App
         }
 
         [Fact]
+        // Legendary items always have Quality 80
         public void IncreaseQualityKeychainEndOfDayRemainsQualityEighty()
         {
             // Given a b-dawg keychain item with SellIn of 10 and Quality of 80
