@@ -10,6 +10,7 @@ namespace GildedTros.App
         private const string GoodWine = "Good Wine";
         private const string BackstagePassesHaxx = "Backstage passes for HAXX";
         private const string BackstagePassesRefactor = "Backstage passes for Re:factor";
+        private const string Keychain = "B-DAWG Keychain";
 
         IList<Item> Items;
 
@@ -28,7 +29,7 @@ namespace GildedTros.App
                 {
                     if (item.Quality > MinQuality)
                     {
-                        if (item.Name != "B-DAWG Keychain")
+                        if (item.Name != Keychain)
                         {
                             item.Quality--;
                         }
@@ -62,7 +63,7 @@ namespace GildedTros.App
                     }
                 }
 
-                if (item.Name != "B-DAWG Keychain")
+                if (item.Name != Keychain)
                 {
                     item.SellIn--;
                 }
@@ -76,7 +77,7 @@ namespace GildedTros.App
                         {
                             if (item.Quality > MinQuality)
                             {
-                                if (item.Name != "B-DAWG Keychain")
+                                if (item.Name != Keychain)
                                 {
                                     item.Quality--;
                                 }
