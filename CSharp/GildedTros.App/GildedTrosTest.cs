@@ -117,5 +117,19 @@ namespace GildedTros.App
             // Then the SellIn should still be 10
             Assert.Equal(10, Items[0].SellIn);
         }
+
+        [Fact]
+        public void IncreaseQualityBackstagePassesEndOfDayGreaterThanTen()
+        {
+            // Given a backstage passes item with SellIn greater than 10 and Quality of 20
+            IList<Item> Items = new List<Item> { new() { Name = "Backstage passes for Re:factor", SellIn = 15, Quality = 20 } };
+            GildedTros app = new(Items);
+
+            // When the quality update is processed end of day
+            app.UpdateQuality();
+
+            // Then the Quality should be 21
+            Assert.Equal(21, Items[0].Quality);
+        }
     }
 }
