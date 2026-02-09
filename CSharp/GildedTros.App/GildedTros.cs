@@ -8,6 +8,7 @@ namespace GildedTros.App
         private const int MaxItemQuality = 50;
 
         private const string GoodWine = "Good Wine";
+        private const string BackstagePassesHaxx = "Backstage passes for HAXX";
 
         IList<Item> Items;
 
@@ -22,7 +23,7 @@ namespace GildedTros.App
             {
                 if (item.Name != GoodWine
                     && item.Name != "Backstage passes for Re:factor"
-                    && item.Name != "Backstage passes for HAXX")
+                    && item.Name != BackstagePassesHaxx)
                 {
                     if (item.Quality > MinQuality)
                     {
@@ -39,7 +40,7 @@ namespace GildedTros.App
                         item.Quality++;
 
                         if (item.Name == "Backstage passes for Re:factor"
-                        || item.Name == "Backstage passes for HAXX")
+                        || item.Name == BackstagePassesHaxx)
                         {
                             if (item.SellIn < 11)
                             {
@@ -70,7 +71,7 @@ namespace GildedTros.App
                     if (item.Name != GoodWine)
                     {
                         if (item.Name != "Backstage passes for Re:factor"
-                            && item.Name != "Backstage passes for HAXX")
+                            && item.Name != BackstagePassesHaxx)
                         {
                             if (item.Quality > MinQuality)
                             {
