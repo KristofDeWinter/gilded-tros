@@ -4,7 +4,10 @@ namespace GildedTros.App
 {
     public class GildedTros
     {
+        private const int MinQuality = 0;
+
         IList<Item> Items;
+
         public GildedTros(IList<Item> Items)
         {
             this.Items = Items;
@@ -18,7 +21,7 @@ namespace GildedTros.App
                     && item.Name != "Backstage passes for Re:factor"
                     && item.Name != "Backstage passes for HAXX")
                 {
-                    if (item.Quality > 0)
+                    if (item.Quality > MinQuality)
                     {
                         if (item.Name != "B-DAWG Keychain")
                         {
@@ -66,7 +69,7 @@ namespace GildedTros.App
                         if (item.Name != "Backstage passes for Re:factor"
                             && item.Name != "Backstage passes for HAXX")
                         {
-                            if (item.Quality > 0)
+                            if (item.Quality > MinQuality)
                             {
                                 if (item.Name != "B-DAWG Keychain")
                                 {
