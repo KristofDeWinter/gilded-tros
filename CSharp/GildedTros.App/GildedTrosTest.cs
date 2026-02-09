@@ -193,13 +193,13 @@ namespace GildedTros.App
         public void UpdateQuality_Should_Not_Increase_Keychain_Quality_When_80()
         {
             // Given a b-dawg keychain item with SellIn of 10 and Quality of 80
-            var item = CreateItem("Backstage passes for Re:factor", 10, 80);
+            var item = CreateItem("B-DAWG Keychain", 10, 80);
             var app = CreateGildedTros(item);
 
             // When the quality update is processed end of day
             app.UpdateQuality();
 
-            // Then the SellIn should still be 80
+            // Then the Quality should still be 80
             Assert.Equal(80, item.Quality);
         }
 
