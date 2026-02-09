@@ -173,5 +173,19 @@ namespace GildedTros.App
             // Then the Quality should be 0
             Assert.Equal(0, Items[0].Quality);
         }
+
+        [Fact]
+        public void IncreaseQualityKeychainEndOfDayRemainsQualityEighty()
+        {
+            // Given a b-dawg keychain item with SellIn of 10 and Quality of 80
+            IList<Item> Items = new List<Item> { new() { Name = "B-DAWG Keychain", SellIn = 10, Quality = 80 } };
+            GildedTros app = new(Items);
+
+            // When the quality update is processed end of day
+            app.UpdateQuality();
+
+            // Then the SellIn should still be 80
+            Assert.Equal(80, Items[0].Quality);
+        }
     }
 }
