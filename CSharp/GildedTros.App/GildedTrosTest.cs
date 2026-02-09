@@ -218,6 +218,21 @@ namespace GildedTros.App
             Assert.Equal(28, item.Quality);
         }
 
+        [Fact]
+        // Smelly items ("Duplicate Code", "Long Methods", "Ugly Variable Names") lower SellIn by 1 each day
+        public void UpdateQuality_Should_Decrease_Smelly_Item_SellIn_By_1()
+        {
+            // Given a "Duplicate Code" item with SellIn of 10 and Quality of 30
+            var item = CreateItem("Duplicate Code", 10, 30);
+            var app = CreateGildedTros(item);
+
+            // When the quality update is processed end of day
+            app.UpdateQuality();
+
+            // Then the Quality should still be 80
+            Assert.Equal(9, item.SellIn);
+        }
+
         private static Item CreateItem(string name, int sellIn, int quality)
         {
             return new Item()
