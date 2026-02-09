@@ -5,6 +5,7 @@ namespace GildedTros.App
     public class GildedTros
     {
         private const int MinQuality = 0;
+        private const int MaxItemQuality = 50;
 
         IList<Item> Items;
 
@@ -31,7 +32,7 @@ namespace GildedTros.App
                 }
                 else
                 {
-                    if (item.Quality < 50)
+                    if (item.Quality < MaxItemQuality)
                     {
                         item.Quality = item.Quality + 1;
 
@@ -40,7 +41,7 @@ namespace GildedTros.App
                         {
                             if (item.SellIn < 11)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < MaxItemQuality)
                                 {
                                     item.Quality = item.Quality + 1;
                                 }
@@ -48,7 +49,7 @@ namespace GildedTros.App
 
                             if (item.SellIn < 6)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < MaxItemQuality)
                                 {
                                     item.Quality = item.Quality + 1;
                                 }
@@ -84,7 +85,7 @@ namespace GildedTros.App
                     }
                     else
                     {
-                        if (item.Quality < 50)
+                        if (item.Quality < MaxItemQuality)
                         {
                             item.Quality = item.Quality + 1;
                         }
