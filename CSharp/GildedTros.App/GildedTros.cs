@@ -35,16 +35,14 @@ namespace GildedTros.App
                 if ((item.Name == GoodWine || item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx) && item.Quality < MaxItemQuality)
                 {
                     item.Quality++;
-
-                    if ((item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx) && item.SellIn < 11)
-                    {
-                        item.Quality++;
-                    }
-
-                    if ((item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx) && item.SellIn < 6)
-                    {
-                        item.Quality++;
-                    }
+                }
+                if ((item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx) && item.Quality < MaxItemQuality && item.SellIn < 11)
+                {
+                    item.Quality++;
+                }
+                if ((item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx) && item.Quality < MaxItemQuality && item.SellIn < 6)
+                {
+                    item.Quality++;
                 }
 
                 item.SellIn--;
