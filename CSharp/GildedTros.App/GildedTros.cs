@@ -35,27 +35,24 @@ namespace GildedTros.App
                         item.Quality--;
                     }
                 }
-                else
+                else if (item.Quality < MaxItemQuality)
                 {
-                    if (item.Quality < MaxItemQuality)
+                    item.Quality++;
+
+                    if (item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx)
                     {
-                        item.Quality++;
-
-                        if (item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx)
+                        if (item.SellIn < 11)
                         {
-                            if (item.SellIn < 11)
-                            {
-                                item.Quality++;
-                            }
+                            item.Quality++;
+                        }
 
-                            if (item.SellIn < 6)
-                            {
-                                item.Quality++;
-                            }
+                        if (item.SellIn < 6)
+                        {
+                            item.Quality++;
                         }
                     }
                 }
-                    
+
                 item.SellIn--;
 
                 if (item.SellIn < 0)
@@ -74,12 +71,9 @@ namespace GildedTros.App
                             item.Quality = MinQuality;
                         }
                     }
-                    else
+                    else if (item.Quality < MaxItemQuality)
                     {
-                        if (item.Quality < MaxItemQuality)
-                        {
-                            item.Quality++;
-                        }
+                        item.Quality++;
                     }
                 }
             }
