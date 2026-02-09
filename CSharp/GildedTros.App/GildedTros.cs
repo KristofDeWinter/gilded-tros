@@ -4,9 +4,6 @@ namespace GildedTros.App
 {
     public class GildedTros
     {
-        private const int MinQuality = 0;
-        private const int MaxItemQuality = 50;
-
         private const string GoodWine = "Good Wine";
         private const string BackstagePassesHaxx = "Backstage passes for HAXX";
         private const string BackstagePassesRefactor = "Backstage passes for Re:factor";

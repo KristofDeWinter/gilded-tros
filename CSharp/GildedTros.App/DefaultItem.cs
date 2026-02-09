@@ -8,7 +8,7 @@
 
         public override void Update()
         {
-            if (item.Quality > GildedTros.MinItemQuality)
+            if (item.Quality > MinItemQuality)
                 item.Quality--;
 
             item.SellIn--;
