@@ -48,7 +48,7 @@ namespace GildedTros.App
         }
 
         [Fact]
-        public void DecreaseQualityNeverNegative()
+        public void DecreaseQualityNeverNegativeEndOfDay()
         {
             // Given an item with SellIn of 2 and quality of 0
             IList<Item> Items = new List<Item> { new() { Name = "foo", SellIn = 4, Quality = 0 } };
