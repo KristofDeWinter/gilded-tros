@@ -38,12 +38,12 @@ namespace GildedTros.App
 
                         if (item.Name == BackstagePassesRefactor || item.Name == BackstagePassesHaxx)
                         {
-                            if (item.SellIn < 11 && item.Quality < MaxItemQuality)
+                            if (item.SellIn < 11)
                             {
                                 item.Quality++;
                             }
 
-                            if (item.SellIn < 6 && item.Quality < MaxItemQuality)
+                            if (item.SellIn < 6)
                             {
                                 item.Quality++;
                             }
